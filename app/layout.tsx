@@ -2,6 +2,7 @@ import "@/app/ui/global.css";
 import { popins } from "@/app/ui/fonts/fonts";
 
 import { Metadata } from 'next';
+import Navbar from "./ui/navbar/navbar";
 
 // Set Meta Data for the application
 export const metadata: Metadata = {
@@ -21,7 +22,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${popins.className} antialiased`}>{children}</body>
+      <body className={`${popins.className} antialiased relative`}>
+        <Navbar />
+        <div>
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
