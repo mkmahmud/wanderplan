@@ -16,45 +16,58 @@ export default function Navbar() {
         { name: "About", href: "/about", icon: <EqualApproximately className="h-6 w-6" /> },
         { name: "Contact", href: "/contact", icon: <Contact className="h-6 w-6" /> },
         // Accounts 
-        { name: "Account", href: "/account", icon: <User className="h-6 w-6" /> }
+        { name: "Account", href: "/dashboard", icon: <User className="h-6 w-6" /> }
     ]
 
     return (
-        <nav className="fixed top-4 left-0 w-[90%]   ml-[5%] rounded-lg bg-neutral-100 shadow-md p-2 ">
-            <div className="flex justify-between items-center   ">
-                <div className="logo">
-                    <Link href="/">
-                        <Image
-                            src="/logo.png"
-                            alt="Wanderplan Logo"
-                            width={40}
-                            height={40}
-                            className="rounded-full"
+        <header className="fixed top-4 left-0 w-[90%]   ml-[5%] rounded-lg bg-neutral-100 shadow-md  ">
+            <nav className="flex justify-between items-center   ">
+                <div className="flex items-center justify-between w-full mr-4  ">
+                    <div className="logo  ">
+                        <Link href="/">
+                            <Image
+                                src="/logo.png"
+                                alt="Wanderplan Logo"
+                                width={40}
+                                height={40}
+                                className="rounded-full py-2"
+                            />
+                        </Link>
+                    </div>
+                    {/* Search */}
+                    <div className="md:  w-[60%]">
+                        <input
+                            type="text"
+                            placeholder="ex : Paris, France"
+                            className="  block w-full rounded-lg border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
                         />
-                    </Link>
-                </div>
-                {/* Search */}
-                <div>
-                    <input
-                        type="text"
-                        placeholder="ex : Paris, France"
-                        className="  block w-full rounded-lg border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
-                    />
+                    </div>
                 </div>
                 {/* Desktop Menus */}
-                <ul className="hidden md:flex space-x-4  ">
+
+
+                <ul className="hidden  md:flex rounded-r-lg  ">
 
                     {
                         menus.map((menu) => (
-                            <li key={menu.name}>
-                                <Link href={menu.href} className="flex items-center space-x-2 text-primary hover:text-primary-dark transition">
-                                    <span className=""> {menu.icon}</span>
+                            <li
+
+                                key={menu.name}
+                                className="groupmenu px-4 py-4 hover:bg-primary-dark transition cursor-pointer"
+                            >
+                                <Link
+                                    href={menu.href}
+
+                                    className="flex items-center space-x-2 text-primary transition groupmenu-hover:text-white"
+                                >
+                                    <span>{menu.icon}</span>
                                     <span>{menu.name}</span>
                                 </Link>
                             </li>
                         ))
                     }
                 </ul>
+                {/* Hamburger Menu for Mobile */}
                 <button
                     className="md:hidden "
                     onClick={() => setMenuOpen((open) => !open)}
@@ -63,7 +76,7 @@ export default function Navbar() {
                 >
                     <Bars3CenterLeftIcon className="h-8 w-8 text-primary" />
                 </button>
-            </div>
+            </nav>
             {/* Mobile view */}
 
 
@@ -71,9 +84,16 @@ export default function Navbar() {
                 menuOpen && <ul className="w-full   mt-2 md:hidden      py-2  ">
                     {
                         menus.map((menu) => (
-                            <li key={menu.name} className="my-4">
-                                <Link href={menu.href} className="flex items-center space-x-2 text-primary hover:text-primary-dark transition">
-                                    <span className=""> {menu.icon}</span>
+                            <li
+                                key={menu.name}
+                                className="group my-4 px-4 py-3 hover:bg-primary-dark transition cursor-pointer "
+                            >
+                                <Link
+                                    onClick={() => setMenuOpen(false)}
+                                    href={menu.href}
+                                    className="flex items-center space-x-2 text-primary transition group-hover:text-white"
+                                >
+                                    <span>{menu.icon}</span>
                                     <span>{menu.name}</span>
                                 </Link>
                             </li>
@@ -81,6 +101,6 @@ export default function Navbar() {
                     }
                 </ul>
             }
-        </nav>
+        </header>
     )
 }

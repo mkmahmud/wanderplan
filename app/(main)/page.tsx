@@ -1,18 +1,18 @@
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col     ">
+    <div className="w-full    ">
       <section className="bg-primary-light py-20">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+        <div className="  mx-auto px-6 text-center">
           <h1 className="text-4xl font-bold text-primary-dark sm:text-5xl">Plan your perfect trip with WanderPlan</h1>
-          <p className="mt-6 text-neutral-600 text-lg max-w-2xl mx-auto">From flights to food — organize every detail of your journey in one place.</p>
+          <p className="mt-6 text-neutral-600 text-lg   mx-auto">From flights to food — organize every detail of your journey in one place.</p>
           <div className="mt-8 flex justify-center space-x-4">
             <a href="/auth/register" className="bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-dark transition">Get Started</a>
             <a href="#features" className="text-primary font-semibold">See Features</a>
           </div>
         </div>
       </section>
-      <section className="bg-neutral-100 py-20">
+      <section className="  py-20">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-neutral-900 mb-12">How WanderPlan Works</h2>
           <div className="grid md:grid-cols-3 gap-12 text-left">
@@ -70,6 +70,6 @@ export default function Page() {
         </div>
       </section>
 
-    </main>
+    </div>
   );
 }
