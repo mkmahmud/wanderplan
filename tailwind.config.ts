@@ -19,8 +19,8 @@ const config: Config = {
       colors: {
         // Green-based primary palette
         primary: {
-          DEFAULT: '#10B981',      // Emerald Green
-          dark: '#065F46',         // Forest Green
+          DEFAULT: '#065F46',      // Emerald Green
+          dark: '#10B981',         // Forest Green
           light: '#D1FAE5',        // Mint Green
         },
 
