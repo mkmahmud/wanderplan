@@ -22,9 +22,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${popins.className} antialiased relative max-w-[1536px] w-full mx-auto`}>
+            <body className={`${popins.className} antialiased relative  w-full mx-auto`}>
                 <Navbar /> {/* Global Navbar */}
-                <main className="bg-primary-dark">{children}</main> {/* Child content of the current layout */}
+                <main className="bg-primary-dark ">{children}</main> {/* Child content of the current layout */}
                 <Footer />
             </body>
         </html>
