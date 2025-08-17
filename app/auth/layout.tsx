@@ -1,7 +1,8 @@
 // app/layout.tsx (Root Layout)
 import "@/app/ui/global.css";
 import { popins } from "@/app/ui/fonts/fonts";
-import { Metadata } from "next"; 
+import { Metadata } from "next";
+import ReduxProvider from "../redux/providers/provider";
 
 export const metadata: Metadata = {
     title: {
@@ -21,9 +22,11 @@ export default function AuthLayout({
     return (
         <html lang="en">
             <body className={`${popins.className} antialiased `}>
-                
-                <main className=" ">{children}</main> {/* Child content of the current layout */}
-                
+                <ReduxProvider>
+
+                    <main className=" ">{children}</main> {/* Child content of the current layout */}
+                </ReduxProvider>
+
             </body>
         </html>
     );

@@ -9,6 +9,10 @@ import SideContent from "@/app/ui/components/auth/sideContent";
 import React, { useEffect } from "react";
 import { useRouter } from 'next/navigation';
 
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/app/redux/store";
+import { login } from "@/app/redux/features/userSlice";
 
 interface IFormInput {
     email: string
@@ -18,6 +22,11 @@ interface IFormInput {
 
 
 export default function Page() {
+
+    // Redux 
+    const user = useSelector((state: RootState) => state.user);
+    const dispatch = useDispatch();
+
 
     const router = useRouter();
 
@@ -68,7 +77,7 @@ export default function Page() {
             localStorage.setItem('user', JSON.stringify(result.user));
             localStorage.setItem('token', result.token);
 
-
+            dispatch(login({ id: result.user.id, email: result.user.email }))
             setTimeout(() => {
                 router.push('/dashboard');
             }, 1000); // Give user a moment to see the success message

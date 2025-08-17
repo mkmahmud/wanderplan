@@ -11,7 +11,7 @@ export default function DashboardPage() {
             <p>Welcome to your dashboard!</p>
             <Link href="/" className="text-blue-500 hover:underline">
                 Go home
-            </Link> 
+            </Link>
             {/* Add more dashboard content here */}
             <button
                 onClick={async () => {
