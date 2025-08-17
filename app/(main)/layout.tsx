@@ -1,17 +1,16 @@
-// app/layout.tsx (Root Layout)
 import "@/app/ui/global.css";
 import { popins } from "@/app/ui/fonts/fonts";
 import { Metadata } from "next";
 import Navbar from "../ui/navbar/navbar";
 import Footer from "../ui/footer/Footer";
+import ReduxProvider from "../redux/providers/provider";
 
 export const metadata: Metadata = {
     title: {
         template: "%s | Wanderplan ",
         default: "Wanderplan - Your Travel Companion",
     },
-    description:
-        "Discover and plan your next adventure with Wanderplan, the ultimate travel companion.",
+    description: "Discover and plan your next adventure with Wanderplan, the ultimate travel companion.",
     metadataBase: new URL("https://wanderplan.com"),
 };
 
@@ -22,10 +21,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${popins.className} antialiased relative max-w-[1536px] w-full mx-auto`}>
-                <Navbar /> {/* Global Navbar */}
-                <main className="bg-primary-dark">{children}</main> {/* Child content of the current layout */}
-                <Footer />
+            <body className={`${popins.className} antialiased relative w-full mx-auto`}>
+                <ReduxProvider>
+                    <Navbar />
+                    <main className="bg-primary-dark">{children}</main>
+                    <Footer />
+                </ReduxProvider>
             </body>
         </html>
     );

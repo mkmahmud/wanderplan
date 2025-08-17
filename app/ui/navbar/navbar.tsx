@@ -20,17 +20,17 @@ export default function Navbar() {
     ]
 
     return (
-        <header className="fixed top-4 left-0 w-[90%]   ml-[5%] rounded-lg bg-neutral-100 shadow-md  ">
+        <header className="fixed top-4 left-0 w-[90%]   ml-[5%] rounded-lg bg-neutral-100 shadow-md z-10 ">
             <nav className="flex justify-between items-center   ">
                 <div className="flex items-center justify-between w-full mr-4  ">
-                    <div className="logo  ">
+                    <div className="logo pl-2 ">
                         <Link href="/">
                             <Image
                                 src="/logo.png"
                                 alt="Wanderplan Logo"
                                 width={40}
                                 height={40}
-                                className="rounded-full py-2"
+                                className="rounded-full py-2 "
                             />
                         </Link>
                     </div>
