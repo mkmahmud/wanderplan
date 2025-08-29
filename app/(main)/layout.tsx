@@ -21,10 +21,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${popins.className} antialiased relative w-full mx-auto`}>
+            <body className={`${popins.className}  antialiased relative w-full mx-auto`}>
                 <ReduxProvider>
                     <Navbar />
-                    <main className="bg-primary-dark">{children}</main>
+                    <main className="bg-white">{children}</main>
                     <Footer />
                 </ReduxProvider>
             </body>
