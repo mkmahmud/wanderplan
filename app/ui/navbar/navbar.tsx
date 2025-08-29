@@ -127,12 +127,12 @@ export default function Navbar() {
 
 
     return (
-        <header className="fixed top-0 left-0 w-full       bg-neutral-100 shadow-md z-10 ">
+        <header className="fixed top-0 left-0 w-full       bg-neutral-100 shadow-md z-20 ">
             {
-                notificationStatus && <div className="bg-black text-white text-center py-1 px-4 md:flex justify-center items-center space-x-2 text-sm relative">
+                notificationStatus && <div className="bg-success text-black text-center py-1 px-4 md:flex justify-center items-center space-x-2 text-sm relative">
                     <PinOff className="hidden md:inline-block" />
                     <p>Unlock the Magic of Travel with Travila - Your Gateway to Extraordinary Experiences</p>
-                    <Button variant="link" className="text-warning">
+                    <Button variant="link" className="text-black font-bold" >
                         <Link href="/get-started">Get it Now <ArrowRight className="inline-block h-4 w-4" /></Link>
                     </Button>
                     <button onClick={() => setNotificationStatus(false)} className="p-4 absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center" aria-label="Close">
