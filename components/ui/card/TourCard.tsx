@@ -21,7 +21,7 @@ export default function TourCard() {
                 </Button>
             </div>
             {/* Content */}
-            <div className="py-6 px-4  bg-gray-100 rounded-t-2xl relative">
+            <div className="p-6 px-4  bg-gray-100 rounded-t-2xl relative">
 
                 {/* Reviews */}
                 <div className="absolute -top-4  right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full flex items-center gap-1 shadow text-sm font-medium">
