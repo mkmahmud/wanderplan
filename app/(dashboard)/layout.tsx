@@ -1,5 +1,5 @@
+ import "../ui/global.css";
 import ReduxProvider from "../redux/providers/provider";
-
 // app/dashboard/layout.tsx (Dashboard Layout)
 export default function DashboardLayout({
   children,
