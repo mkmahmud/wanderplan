@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Bars3CenterLeftIcon } from '@heroicons/react/24/outline';
-import { Home, EqualApproximately, Contact, User, ArrowDown, LayoutDashboard, Languages, Sun, MenuSquareIcon, SquareDashed, Grip, PinOff, ArrowRight, Cross, X } from "lucide-react";
+import { EqualApproximately, Contact, User, ArrowDown, LayoutDashboard, Languages, Sun, Grip, PinOff, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button"
 
 import {
@@ -11,10 +11,8 @@ import {
     DropdownMenuContent,
     DropdownMenuGroup,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuPortal,
     DropdownMenuSeparator,
-    DropdownMenuShortcut,
     DropdownMenuSub,
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
@@ -26,7 +24,6 @@ import {
     SelectContent,
     SelectGroup,
     SelectItem,
-    SelectLabel,
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
@@ -39,7 +36,20 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = React.useState(false);
 
     // Set Notification status
-    const [notificationStatus, setNotificationStatus] = React.useState(true);
+    const [notificationStatus, setNotificationStatus] = React.useState(false);
+
+    // Get User Info from local storage
+
+    const [userInfo, setUserInfo] = useState<any>(null);
+
+    useEffect(() => {
+        const user = localStorage.getItem("user");
+        const parsed = user ? JSON.parse(user) : null;
+        setUserInfo(parsed);
+    }, []);
+
+    const userFirstAlphabet = userInfo?.fullName ? userInfo.fullName.charAt(0).toUpperCase() : null;
+    console.log(userFirstAlphabet);
 
     const navlinks = [
         {
@@ -124,7 +134,14 @@ export default function Navbar() {
         }
     ]
 
-
+    function generateRamdomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    } ;
 
     return (
         <header className="fixed top-0 left-0 w-full       bg-neutral-100 shadow-md z-20 ">
@@ -250,7 +267,11 @@ export default function Navbar() {
                         <Button variant="secondary" className=" "><Sun /></Button>
                     </div>
                     <div>
-                        <Button variant="secondary" className=" "><Link href="/dashboard">Log In</Link></Button>
+                        {
+                            userInfo ? <Button variant="destructive" className="bg-warning" ><Link href="/dashboard">{userFirstAlphabet}</Link></Button>
+                                : <Button variant="secondary" className=" "><Link href="/auth/login">Log In</Link></Button>
+
+                        }
                     </div>
                     <div>
                         <Button className="text-white font-bold"> <Grip /> </Button>
@@ -359,8 +380,13 @@ export default function Navbar() {
                         <div>
                             <Button variant="secondary" className=" "><Sun /></Button>
                         </div>
+                        {/* Accounts */}
                         <div>
-                            <Button variant="secondary" className=" "><Link href="/dashboard">Log In</Link></Button>
+                            {
+                                userInfo ? <Button variant="destructive" className="bg-warning"  ><Link href="/dashboard">{userFirstAlphabet}</Link></Button>
+                                    : <Button variant="secondary" className=" "><Link href="/auth/login">Log In</Link></Button>
+
+                            }
                         </div>
                         <div>
                             <Button className="text-white font-bold"> <Grip /> </Button>

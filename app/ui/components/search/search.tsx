@@ -14,7 +14,7 @@ import { TourSearch } from "@/components/ui/search/TourSearch";
 export default function Search() {
     // Active Search Option
     const [activeOption, setActiveOprion] = useState(heroSearch.tours);
-    console.log(activeOption);
+   
 
 
 
