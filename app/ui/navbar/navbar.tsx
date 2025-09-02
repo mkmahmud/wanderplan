@@ -67,7 +67,6 @@ export default function Navbar() {
                         { type: "item", label: "Solo", href: "/tours/solo" },
                         { type: "item", label: "Package", href: "/tours/package" },
                         { type: "item", label: "Group", href: "/tours/group" },
-                        { type: "item", label: "Luxury", href: "/tours/luxury" }
                     ]
                 }
             ]
@@ -141,7 +140,7 @@ export default function Navbar() {
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
-    } ;
+    };
 
     return (
         <header className="fixed top-0 left-0 w-full       bg-neutral-100 shadow-md z-20 ">

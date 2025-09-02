@@ -8,7 +8,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import { Check, Clock, Dock, Dot, Earth, Info, InfoIcon, MapPin, Option, SearchIcon, TrafficCone, Users, X } from "lucide-react";
+import { Check, Clock, Dot, Info, MapPin, Users, X } from "lucide-react";
 import Image from "next/image";
 import {
     Accordion,
@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/accordion"
 import { DatePicker } from "@/components/ui/custom/datePicker";
 
+import { redirect } from 'next/navigation';
 
 // @ts-ignore
 import { useForm } from "react-hook-form"
@@ -26,6 +27,9 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/app/redux/store";
+import { setJourney } from "@/app/redux/features/bookingSlice";
 
 const bookInfo = z.object({
     date: z.date().transform((val) => new Date(val)),
@@ -45,11 +49,21 @@ export default function SoloTourDetails() {
         },
     })
 
+    // Redux 
+    const bookingState = useSelector((state: RootState) => state.booking);
+    const dispatch = useDispatch();
 
     //     submit handler.
     function onSubmit(values: z.infer<typeof bookInfo>) {
 
+        // redirect to checkout page with query params.
+
+        console.log("Booking Info: ", bookingState);
+
+        const selectedDate = values.date.toISOString();
+        dispatch(setJourney({ journeyDate: selectedDate, travellers: values.travelers }));
         console.log(values)
+        redirect('/tours/booking');
     }
 
     return (
@@ -145,9 +159,9 @@ export default function SoloTourDetails() {
 
                         <Accordion
                             type="multiple"
-                            collapsible
+
                             className="w-full"
-                            defaultValue="item-1"
+                            defaultValue={["item-1"]}
                         >
                             <AccordionItem value="item-1">
                                 <AccordionTrigger className="text-lg text-primary">      Overview </AccordionTrigger>
