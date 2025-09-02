@@ -65,8 +65,8 @@ export function HotelForm() {
                 <SearchAndSelect hotelform={hotelform} name="location" label="Location" defaultPlaceHolder='Barishal, BD' />
 
 
-                <DatePicker hotelform={hotelform} name="checkIn" label="Check In" />
-                <DatePicker hotelform={hotelform} name="checkOut" label="Check Out" />
+                <DatePicker form={hotelform} name="checkIn" label="Check In" />
+                <DatePicker form={hotelform} name="checkOut" label="Check Out" />
 
                 <FormField
                     control={hotelform.control}
