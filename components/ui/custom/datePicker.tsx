@@ -30,7 +30,7 @@ function formatDate(date: Date | undefined) {
 }
 
 
-export function DatePicker({ hotelform, name, label }: any) {
+export function DatePicker({ form, name, label }: any) {
 
     const [opendatePicker, setOpenDatePicker] = React.useState(false)
 
@@ -39,7 +39,7 @@ export function DatePicker({ hotelform, name, label }: any) {
 
     return (
         <FormField
-            control={hotelform.control}
+            control={form.control}
             name={name}
             render={({ field }: any) => (
                 <FormItem className="flex flex-col gap-2">

@@ -23,7 +23,7 @@ export default function SoloPage() {
         <div className=" container mx-auto px-4 pt-8">
 
             {/* Search */}
-            <div className="mt-10 py-4 bg-neutral-300 rounded-lg shadow-sm">
+            <div className="mt-10 p-4 bg-neutral-300 rounded-lg shadow-sm">
                 <TourSearch />
             </div>
 
