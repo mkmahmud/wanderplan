@@ -2,8 +2,16 @@
 import { MapPin, Users, Clock, Info } from "lucide-react"
 import Image from "next/image"
 import { Button } from "../../button"
+import { redirect } from 'next/navigation';
+
 
 export default function TourSearchedCard({ image, title, location, duration, groupSize, price }: any) {
+
+
+    function handleDetails() {
+        redirect('/tours/solo/1');
+    }
+
     return (
         <div className="md:flex bg-white shadow-md rounded-lg overflow-hidden border hover:shadow-lg transition w-full max-w-5xl my-4">
             {/* Left - Image */}
@@ -61,7 +69,7 @@ export default function TourSearchedCard({ image, title, location, duration, gro
                     <span className="text-lg font-bold text-primary">BDT {price}</span>
                     <span className="text-xs text-gray-500">Per Person</span>
                 </div>
-                <Button className="w-full" size="sm" variant="destructive">View Details</Button>
+                <Button className="w-full" size="sm" variant="destructive" onClick={handleDetails}>View Details</Button>
             </div>
         </div>
     )
