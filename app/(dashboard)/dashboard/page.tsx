@@ -1,13 +1,13 @@
 "use client"
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; 
 
 export default function DashboardPage() {
     const router = useRouter();
     return (
-        <div>
-            <h1>Dashboard</h1>
+        <div className="container mx-auto  ">
+            <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
             <button
             onClick={async () => {
                 await fetch('/api/auth/logout', { method: 'POST' });
@@ -21,3 +21,4 @@ export default function DashboardPage() {
         </div>
     );
 }
+
