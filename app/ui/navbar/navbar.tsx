@@ -63,6 +63,7 @@ export default function Navbar() {
             dropdown: [
                 {
                     type: "group",
+                    label: "Tours",
                     children: [
                         { type: "item", label: "Solo", href: "/tours/solo" },
                         { type: "item", label: "Package", href: "/tours/package" },
@@ -83,6 +84,7 @@ export default function Navbar() {
             dropdown: [
                 {
                     type: "group",
+                    label: "Activities",
                     children: [
                         { type: "item", label: "Adventure", href: "/activities/adventure" },
                         { type: "item", label: "Cultural Tours", href: "/activities/cultural" },
@@ -106,6 +108,7 @@ export default function Navbar() {
             dropdown: [
                 {
                     type: "group",
+                    label: "Rental",
                     children: [
                         { type: "item", label: "Bike", href: "/rental/bike" },
                         { type: "item", label: "Car", href: "/rental/car" },
@@ -122,6 +125,7 @@ export default function Navbar() {
             dropdown: [
                 {
                     type: "group",
+                    label: "Tickets",
                     children: [
                         { type: "item", label: "Air", href: "/tickets/air" },
                         { type: "item", label: "Bus", href: "/tickets/bus" },
@@ -133,14 +137,7 @@ export default function Navbar() {
         }
     ]
 
-    function generateRamdomColor() {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    };
+  
 
     return (
         <header className="fixed top-0 left-0 w-full       bg-neutral-100 shadow-md z-20 ">

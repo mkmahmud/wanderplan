@@ -129,7 +129,7 @@ export default function Page() {
                             <div className="mt-10 flex items-center justify-between">
                                 <div>
                                     <label className="inline-flex items-center space-x-2">
-                                        <input type="checkbox" className="form-checkbox text-primary  rounded-lg h-6 w-6" name="rememberMe" {...register("rememberMe")} />
+                                        <input type="checkbox" className="form-checkbox text-primary  rounded-lg h-6 w-6" {...register("rememberMe")} />
                                         <span className="text-neutral-700">Remember Me! </span>
                                     </label>
 
