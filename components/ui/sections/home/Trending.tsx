@@ -1,3 +1,4 @@
+"use client";
 import TrendingDestinationCard from "../../card/TrendingDestinationCard";
 
 export default function Trending() {
