@@ -1,14 +1,17 @@
 import { Heart, Star } from "lucide-react";
 import { Button } from "../button";
+import Image from "next/image";
 
-export default function TourCard() {
+export default function TourCard({image}: {image: string}) {
     return (
         <div className="max-w-sm mx-auto bg-white rounded   overflow-hidden relative group " >
             {/* Tour Image */}
             <div className="relative">
-                <img
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
+                <Image
+                    src={image}
                     alt="Tour"
+                    height={100}
+                    width={100}
                     className="w-full h-56 object-cover rounded-t-2xl scale-110 group-hover:scale-125 transition-transform duration-300 ease-in-out"
                 />
                 {/* Tag */}

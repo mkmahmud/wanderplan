@@ -11,13 +11,21 @@ export default function Hero() {
             className="   "
         >
             <div
-                className="h-full py-20 relative"
-                style={{
-                    backgroundImage: "url('/hero/4.jpg')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
+                className="h-full py-20 relative overflow-hidden"
+
             >
+
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                >
+                    <source src="/videoplayback.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black bg-opacity-50 z-0" />
 
@@ -41,7 +49,7 @@ export default function Hero() {
 
             </div>
             <div className="relative z-10 -top-40 md:-top-20 ">
-                <Search /> 
+                <Search />
             </div>
         </div>
     )

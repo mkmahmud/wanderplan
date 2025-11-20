@@ -1,9 +1,19 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true, // Make sure to keep React Strict Mode on for better debugging
+  reactStrictMode: true,
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
+
   experimental: {
-    // Add other supported experimental options here if needed
+    // your other options...
   },
 };
 

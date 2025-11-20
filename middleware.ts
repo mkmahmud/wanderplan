@@ -1,27 +1,25 @@
 // middleware.ts
-import { NextRequest, NextResponse } from 'next/server';
-import jwt from 'jsonwebtoken';
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
-    const token = request.cookies.get('token')?.value;
-    const pathname = request.nextUrl.pathname;
+export function middleware(req: NextRequest) {
+    const accessToken = req.cookies.get('accessToken')?.value;
+    const pathname = req.nextUrl.pathname;
 
-    const isAuthPage = pathname === '/auth/login' || pathname === '/auth/register';
     const isProtectedPage = pathname.startsWith('/dashboard');
+    const isAuthPage = pathname === '/auth/login' || pathname === '/auth/register';
 
-    if (token && isAuthPage) {
-        try {
-            jwt.verify(token, process.env.JWT_SECRET!);
-            return NextResponse.redirect(new URL('/dashboard', request.url));
-        } catch {
-
-        }
+    // If user is logged in and tries to access auth pages, redirect to dashboard
+    if (accessToken && isAuthPage) {
+        return NextResponse.redirect(new URL('/dashboard', req.url));
     }
 
-    if (!token && isProtectedPage) {
-        return NextResponse.redirect(new URL('/auth/login', request.url));
+    // If user is NOT logged in and tries to access dashboard, redirect to login
+    if (!accessToken && isProtectedPage) {
+        return NextResponse.redirect(new URL('/auth/login', req.url));
     }
 
+    // Otherwise, allow
     return NextResponse.next();
 }
 

@@ -35,8 +35,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { setUserInfo } from "@/app/redux/features/bookingSlice";
+ 
 import Image from "next/image";
+import { setUserInfo } from "@/app/redux/features/bookingSlice";
 
 const bookInfo = z.object({
     traveler: z.string().min(1, "Please select a traveler"),

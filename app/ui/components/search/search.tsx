@@ -20,12 +20,12 @@ export default function Search() {
 
 
     return (
-        <div className="bg-white py-2 w-[90%] md:w-[80%] max-w-6xl rounded-lg  mx-auto z-10 px-4 shadow-lg">
+        <div className="bg-white dark:bg-black py-2 w-[90%] md:w-[80%] max-w-6xl rounded-lg  mx-auto z-10 px-4 shadow-lg">
             <div className="p-2 md:py-4 md:flex justify-between">
                 <div className="grid grid-cols-3 gap-2 my-2 md:flex">
                     <Button size="sm" asChild>
                         <button
-                            className={activeOption === heroSearch.tours ? "bg-primary-dark text-white px-4 py-2 rounded-lg shadow" : "bg-primary text-black px-4 py-2 rounded-lg shadow"}
+                            className={activeOption === heroSearch.tours ? "bg-primary-dark text-white px-4 py-2 rounded-lg shadow" : "dark:text-white bg-primary text-black px-4 py-2 rounded-lg shadow"}
                             onClick={() => setActiveOprion(heroSearch.tours)}
                         >
                             Tours
@@ -33,7 +33,7 @@ export default function Search() {
                     </Button>
                     <Button size="sm" asChild>
                         <button
-                            className={activeOption === heroSearch.hotels ? "bg-primary-dark text-white px-4 py-2 rounded-lg shadow" : "bg-primary text-black px-4 py-2 rounded-lg shadow"}
+                            className={activeOption === heroSearch.hotels ? "bg-primary-dark text-white px-4 py-2 rounded-lg shadow" : "dark:text-white  bg-primary text-black px-4 py-2 rounded-lg shadow"}
                             onClick={() => setActiveOprion(heroSearch.hotels)}
                         >
                             Hotels
@@ -42,7 +42,7 @@ export default function Search() {
 
                     <Button size="sm" asChild>
                         <button
-                            className={activeOption === heroSearch.activities ? "bg-primary-dark text-white px-4 py-2 rounded-lg shadow" : "bg-primary text-black px-4 py-2 rounded-lg shadow"}
+                            className={activeOption === heroSearch.activities ? "bg-primary-dark text-white px-4 py-2 rounded-lg shadow" : "dark:text-white bg-primary text-black px-4 py-2 rounded-lg shadow"}
                             onClick={() => setActiveOprion(heroSearch.activities)}
                         >
                             Activities
@@ -50,7 +50,7 @@ export default function Search() {
                     </Button>
                     <Button size="sm" asChild>
                         <button
-                            className={activeOption === heroSearch.tickets ? "bg-primary-dark text-white px-4 py-2 rounded-lg shadow" : "bg-primary text-black px-4 py-2 rounded-lg shadow"}
+                            className={activeOption === heroSearch.tickets ? "bg-primary-dark text-white px-4 py-2 rounded-lg shadow" : "dark:text-white  bg-primary text-black px-4 py-2 rounded-lg shadow"}
                             onClick={() => setActiveOprion(heroSearch.tickets)}
                         >
                             Tickets
