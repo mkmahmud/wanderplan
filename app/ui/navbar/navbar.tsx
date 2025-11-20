@@ -28,10 +28,16 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { navlinks } from "./navlinks";
+import { useAuth } from "@/app/hooks/useAuth";
 
 
 
 export default function Navbar() {
+
+    // GEt User Auth Info
+    const { isLoggedIn } = useAuth();
+
+   
 
     // State to manage mobile menu open/close
     const [menuOpen, setMenuOpen] = React.useState(false);
@@ -122,7 +128,7 @@ export default function Navbar() {
                             link.dropdown ?
                                 <DropdownMenu key={link.label}  >
                                     <DropdownMenuTrigger asChild className=" ">
-                                        <Button variant="subtle">{link.label} {link.icon} </Button>
+                                        <Button variant="subtle" className="dark:hover:text-error">{link.label} {link.icon} </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent className="w-56" align="start">
                                         {
@@ -132,7 +138,7 @@ export default function Navbar() {
                                                         <DropdownMenuGroup key={index}>
                                                             {item.children.map((child, idx) => (
                                                                 <DropdownMenuItem key={idx}>
-                                                                    <Link href={child.href} className="w-full hover:text-primary">{child.label}</Link>
+                                                                    <Link href={child.href} className="w-full hover:text-primary dark:hover:text-error">{child.label}</Link>
                                                                 </DropdownMenuItem>
                                                             ))}
                                                         </DropdownMenuGroup>
@@ -158,7 +164,7 @@ export default function Navbar() {
                                         }
                                     </DropdownMenuContent>
                                 </DropdownMenu>
-                                : <Link key={link.label} href={link.href}> <Button variant="subtle">{link.label} {link.icon} </Button></Link>
+                                : <Link key={link.label} href={link.href}> <Button variant="subtle" className="dark:hover:text-error">{link.label} {link.icon} </Button></Link>
                         ))
 
 
@@ -210,14 +216,14 @@ export default function Navbar() {
                     {/* Accounts */}
                     <div>
                         {
-                            userInfo ? <Button variant="destructive" className="bg-warning" ><Link href="/dashboard">{userFirstAlphabet}</Link></Button>
+                            isLoggedIn ? <Button variant="destructive" className="bg-warning" ><Link href="/dashboard">{userFirstAlphabet}</Link></Button>
                                 : <Button variant="secondary" className=" "><Link href="/auth/login">Log In</Link></Button>
 
                         }
                     </div>
-                    <div>
+                    {/* <div>
                         <Button className="text-white font-bold"> <Grip /> </Button>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Mobile Icons */}
@@ -347,7 +353,7 @@ export default function Navbar() {
                         {/* Accounts */}
                         <div>
                             {
-                                userInfo ? <Button variant="destructive" className="bg-warning"  ><Link href="/dashboard">{userFirstAlphabet}</Link></Button>
+                                isLoggedIn ? <Button variant="destructive" className="bg-warning"  ><Link href="/dashboard">{userFirstAlphabet}</Link></Button>
                                     : <Button variant="secondary" className=" "><Link href="/auth/login">Log In</Link></Button>
                             }
                         </div>

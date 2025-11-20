@@ -1,9 +1,8 @@
 import "@/app/ui/global.css";
-import { popins } from "@/app/ui/fonts/fonts";
-import { Metadata } from "next";
+ import { Metadata } from "next";
 import Navbar from "../ui/navbar/navbar";
 import Footer from "../ui/footer/Footer";
-import ReduxProvider from "../redux/providers/provider";
+ import ReduxWrapper from "../redux/ReduxWrapper";
 
 export const metadata: Metadata = {
     title: {
@@ -20,14 +19,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
-            <body className={`${popins.className}  antialiased relative w-full mx-auto`}>
-                <ReduxProvider>
-                    <Navbar />
-                    <main className="bg-white">{children}</main>
-                    <Footer />
-                </ReduxProvider>
-            </body>
-        </html>
+
+        <ReduxWrapper>
+            <Navbar />
+            <main className="bg-white dark:bg-neutral-700">{children}</main>
+            <Footer />
+        </ReduxWrapper>
+
     );
 }
